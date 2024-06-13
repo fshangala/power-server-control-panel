@@ -17,8 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
+from accounts.urls import accountsRouter
 
 router = routers.DefaultRouter()
+router.registry.extend(accountsRouter.registry)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
